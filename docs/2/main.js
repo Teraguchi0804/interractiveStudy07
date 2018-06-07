@@ -78,6 +78,7 @@ function update() {
 	var mapVal = map(d, 0, 1, 0, window.innerWidth * 0.22);
 
   if(mapVal <= 0.95) {
+		TweenMax.to($('.mv'), 0.1, {x:"0"});
 		TweenMax.set($('.inner'), {
 			opacity: mapVal,
 			rotationZ:radian(param.x * param.y) * 0.1,
@@ -95,6 +96,7 @@ function update() {
 			opacity: mapVal,
 			rotationZ:radian(param.x * param.y) * 0.0001,
 		});
+		TweenMax.to($('.mv'), 0.1, {x:"+=20", yoyo:true, repeat:5});
   }
 
 
