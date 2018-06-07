@@ -72,8 +72,31 @@ function update() {
     scaleY:1 + Math.abs(param.y) * 0.001,
     x:param.x,
     y:param.y,
-    backgroundColor:chroma.scale([0x262558, 0x96782c])(map(d, 0, 1, 0, window.innerWidth * 0.25)).css()
+    backgroundColor:chroma.scale([0x262558, 0x96782c])(map(d, 0, 1, 0, window.innerWidth * 0.25)).css(),
   });
+
+	var mapVal = map(d, 0, 1, 0, window.innerWidth * 0.22);
+
+  if(mapVal <= 0.95) {
+		TweenMax.set($('.inner'), {
+			opacity: mapVal,
+			rotationZ:radian(param.x * param.y) * 0.1,
+		});
+		TweenMax.set($('.inner02'), {
+			opacity: 0,
+			rotationZ:radian(param.x * param.y) * 0.1,
+		});
+  } else if(mapVal > 0.95){
+		TweenMax.set($('.inner'), {
+			opacity: 0,
+			rotationZ:radian(param.x * param.y) * 0.1,
+		});
+		TweenMax.set($('.inner02'), {
+			opacity: mapVal,
+			rotationZ:radian(param.x * param.y) * 0.0001,
+		});
+  }
+
 
   window.requestAnimationFrame(update);
 }

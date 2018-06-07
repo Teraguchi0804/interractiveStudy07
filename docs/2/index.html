@@ -35,6 +35,7 @@
         border-radius: 50%;
         background-color: #262558;
         -webkit-user-select: none;
+        overflow: hidden;
       }
       .mv > .item:before {
         content: '';
@@ -47,6 +48,23 @@
         left: 0;
         bottom: 0;
         right: 0;
+        z-index: 1;
+        background-image: url("../img/trump.jpg");
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.0;
+      }
+      .mv > .item > .inner02 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        background-image: url("../img/abe.jpg");
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.0;
       }
       .text {
         position: absolute;
@@ -71,6 +89,7 @@
     <div class="mv">
       <div class="item js-tg">
         <div class="inner"></div>
+        <div class="inner02"></div>
       </div>
     </div>
 
